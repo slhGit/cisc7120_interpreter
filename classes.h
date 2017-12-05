@@ -25,7 +25,7 @@ public:
 	~Expr();
 	Token* op; 
 
-	virtual std::string toString();
+	virtual std::string toString(); // stringify.
 
 	virtual int eval(); // returns the value of the expression.
 };
@@ -41,9 +41,9 @@ public:
 //Node for Variables
 class Id : public Expr {
 public:
-	Id(Word*, int);
-	int value;
-	bool init = false;
+	Id(Word*, int); 
+	int value; // value assigned to the Id.
+	bool init = false; // whether or not it's been initiated.
 	
 	virtual int eval(); // returns the value of the expression.
 };
@@ -51,12 +51,12 @@ public:
 //Node for Arithmetic Expressions
 class Arith : public Expr {
 public:
-	Arith(Token*, Expr*, Expr*);
+	Arith(Token*, Expr*, Expr*); 
 	~Arith();
 	Expr* expr1;
 	Expr* expr2;
 
-	virtual std::string toString();
+	virtual std::string toString(); // stringify
 	virtual int eval(); // returns the value of the expression.
 };
 
@@ -67,7 +67,7 @@ public:
 	~Unary();
 	Expr* expr;
 
-	virtual std::string toString();
+	virtual std::string toString(); // stringify
 	virtual int eval(); // returns the value of the expression.
 };
 
@@ -93,9 +93,9 @@ class SymbolTable {
 public:
 	SymbolTable();
 
-	void put(Token*, Id*);
-	Id* get(Token*);
-	void remove(Token*);
+	void put(Token*, Id*); 	// add Id to symbol table
+	Id* get(Token*);	// retreive Id
+	void remove(Token*);	// remove Id
 private:
 	//The table is a map from Tokens to Ids
 	std::map<Token*, Id*> table;
