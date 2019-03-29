@@ -15,7 +15,7 @@ parser.h/.cpp     Declaration and Definitions for the Parser.
 
 
 The language this interprets is as follows:
-
+```
 Program:
 	Assignment*
 
@@ -45,3 +45,4 @@ NonZeroDigit:
 
 Digit:
 	0|1|...|9
+```
